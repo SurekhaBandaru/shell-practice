@@ -12,7 +12,7 @@ fi
 VALIDATE () {
 
 if [ $1 -eq 0 ] #if the installation is success
-#here $1 is first param (exit status), $2 is second param (software name)
+#here $1 is first param (exit status $?), $2 is second param (software name)
     then 
         echo "Installing $2 is ... SUCCESS"
     else
