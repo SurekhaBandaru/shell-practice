@@ -8,3 +8,13 @@ if[ $USERID -ne 0 ]
 else
     echo "You are running with root access"
 fi
+
+dnf install mysql -y
+
+if [ $? -eq 0 ]
+then 
+    echo "Installing mysql is ... SUCCESS"
+else
+    echo "Instlling mysql is a "FAILURE"
+    exit 1
+fi
