@@ -3,6 +3,7 @@
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
+then
     echo "ERROR:: Please run the script with root access"
     exit 1 # give other than 0 till 127
 else
@@ -15,6 +16,6 @@ if [ $? -eq 0 ]
 then 
     echo "Installing mysql is ... SUCCESS"
 else
-    echo "Instlling mysql is a "FAILURE"
+    echo "Installing mysql is a .... FAILURE"
     exit 1
 fi
