@@ -1,8 +1,8 @@
 #!/bin/bash
-#hwew -e denotes enabling colours
+#here -e denotes enabling colours
 echo -e "Hello Colours"
 
 
 echo -e "\e[31m this is red color \e[0m"
 #the nelow command will also be displayed in in red as we did not end the color command
-echo -e "continue on colors practice with no color"
+echo "continue on colors practice with no color"
