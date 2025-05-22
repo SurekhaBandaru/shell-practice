@@ -39,7 +39,7 @@ if [ $1 -eq 0 ] #if the installation is success
 
 # this is for sending from here in the script for package in ${PACKAGES[@]}
 
-for package $@
+for package in $@
     do  
         dnf list installed $package &>>$LOG_FILE
         if [ $? -ne 0 ]
