@@ -4,3 +4,5 @@ echo -e "Hello Colours"
 
 
 echo -e "\e[31m this is red color"
+
+echo -e "continue on colors practice"
