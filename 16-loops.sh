@@ -26,7 +26,7 @@ fi
 
 
 for package in ${PACKAGE[@]}
-do
+do  
 dnf list installed $package &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
@@ -35,7 +35,7 @@ then
    VALIDATE $? "MySQL"
 
 else
-    echo -e "$Y Already $package was installed $N" &>>$LOG_FILE 
+    echo -e "$Y Already $package was installed $N" | tee -a $LOG_FILE
 fi
 done
 
