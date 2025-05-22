@@ -23,21 +23,7 @@ then
 else
     echo  -e "$G You are running with root access $N"  | tee -a $LOG_FILE
 fi
-
-
-    for package in ${PACKAGE[@]}
-    do  
-        dnf list installed $package &>>$LOG_FILE
-        if [ $? -ne 0 ]
-        then
-            echo "Not installed....Going to install $package" | tee -a $LOG_FILE
-            dnf install $package -y &>>$LOG_FILE
-            VALIDATE $? "MySQL"
-
-else
-    echo -e "$Y Already $package was installed $N" | tee -a $LOG_FILE
-fi 
-done
+  
 
 VALIDATE () {
 
@@ -51,3 +37,16 @@ if [ $1 -eq 0 ] #if the installation is success
     fi
 }
 
+for package in ${PACKAGES[@]}
+    do  
+        dnf list installed $package &>>$LOG_FILE
+        if [ $? -ne 0 ]
+        then
+            echo "$package Not installed....Going to install it" | tee -a $LOG_FILE
+            dnf install $package -y &>>$LOG_FILE
+            VALIDATE $? "$package"
+
+        else
+            echo -e "Nothing to do ... $Y Already $package was installed $N" | tee -a $LOG_FILE
+        fi 
+done
