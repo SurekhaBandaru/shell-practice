@@ -37,7 +37,7 @@ if [ $1 -eq 0 ] #if the installation is success
 
 #mysql
 #check already got installed or not with dnf list installed mysql
-dnf list installed mysql
+dnf list installed mysql &>>$LOG_FILE 
 
 if [ $? -ne 0 ]
 then
@@ -50,7 +50,7 @@ else
 fi
 
 #python
-dnf list installed python3
+dnf list installed python3 &>>$LOG_FILE 
 
 if [ $? -ne 0 ]
 then
@@ -64,7 +64,7 @@ else
 fi
 
 #Nginx
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE 
 
 if [ $? -ne 0 ]
 then
