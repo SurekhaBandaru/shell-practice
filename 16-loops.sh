@@ -4,7 +4,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-PACKAGES=("mysql" "python" "nginx")
+PACKAGES=("mysql" "python3" "nginx")
 
 LOG_DIR="/var/log/shellscript-logs"
 # command to split and get just files name excluding .sh is
@@ -25,18 +25,18 @@ else
 fi
 
 
-for package in ${PACKAGE[@]}
-do  
-dnf list installed $package &>>$LOG_FILE
-if [ $? -ne 0 ]
-then
-    echo "Not installed....Going to install $package" | tee -a $LOG_FILE
-    dnf install $package -y &>>$LOG_FILE
-   VALIDATE $? "MySQL"
+    for package in ${PACKAGE[@]}
+    do  
+        dnf list installed $package &>>$LOG_FILE
+        if [ $? -ne 0 ]
+        then
+            echo "Not installed....Going to install $package" | tee -a $LOG_FILE
+            dnf install $package -y &>>$LOG_FILE
+            VALIDATE $? "MySQL"
 
 else
     echo -e "$Y Already $package was installed $N" | tee -a $LOG_FILE
-fi
+fi 
 done
 
 VALIDATE () {
