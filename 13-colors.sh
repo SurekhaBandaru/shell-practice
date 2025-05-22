@@ -3,14 +3,14 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e0m"
+N="\e[0m"
 
 if [ $USERID -ne 0 ]
 then
-    echo "$R ERROR:: Please run the script with root access $N"
+    echo -e "$R ERROR:: Please run the script with root access $N"
     exit 1 # give other than 0 till 127
 else
-    echo "$G You are running with root access $N"
+    echo  -e "$G You are running with root access $N"
 fi
 
 VALIDATE () {
@@ -18,9 +18,9 @@ VALIDATE () {
 if [ $1 -eq 0 ] #if the installation is success
 #here $1 is first param (exit status $?), $2 is second param (software name)
     then 
-        echo "$Y Installing $2 is ... $N $G SUCCESS $N"
+        echo -e "$Y Installing $2 is ... $N $G SUCCESS $N"
     else
-         echo "$Y Installing $2 is a .... $N $R FAILURE $N"
+         echo -e "$Y Installing $2 is a .... $N $R FAILURE $N"
         exit 1
     fi
 }
