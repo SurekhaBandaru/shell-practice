@@ -5,6 +5,16 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+LOG_DIR="/var/log/shellscript-logs"
+# command to split and get just files name excluding .sh is
+# echo 14-logs.sh | cut -d "." -f1
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1) $0
+LOG_FILE=$LOG_DIR/$SCRIPT_NAME.log
+
+mkdir -p $LOG_DIR
+
+echo "Script started, executing at: $(date)" &>>$LOG_FILE 
+
 if [ $USERID -ne 0 ]
 then
     echo -e "$R ERROR:: Please run the script with root access $N"
@@ -31,8 +41,8 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 then
-    echo "Not installed....Going to install MySQL"
-    dnf install mysql -y
+    echo "Not installed....Going to install MySQL" &>>$LOG_FILE
+    dnf install mysql -y &>>$LOG_FILE
    VALIDATE $? "MySQL"
 
 else
@@ -44,13 +54,13 @@ dnf list installed python3
 
 if [ $? -ne 0 ]
 then
-    echo "Not installed....Going to install python3"
-    dnf install python3 -y
+    echo "Not installed....Going to install python3" &>>$LOG_FILE
+    dnf install python3 -y &>>$LOG_FILE
 
    VALIDATE $? "Python3"
 
 else
-    echo -e "Nothing to do, $Y already python3 was installed $N"
+    echo -e "Nothing to do, $Y already python3 was installed $N" &>>$LOG_FILE
 fi
 
 #Nginx
@@ -58,8 +68,8 @@ dnf list installed nginx
 
 if [ $? -ne 0 ]
 then
-    echo "Not installed....Going to install nginx"
-    dnf install nginx -y
+    echo "Not installed....Going to install nginx" &>>$LOG_FILE
+    dnf install nginx -y &>>$LOG_FILE
 
    VALIDATE $? "Nginx"
 
