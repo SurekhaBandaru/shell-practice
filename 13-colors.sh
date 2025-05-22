@@ -18,14 +18,15 @@ VALIDATE () {
 if [ $1 -eq 0 ] #if the installation is success
 #here $1 is first param (exit status $?), $2 is second param (software name)
     then 
-        echo -e "$Y Installing $2 is ... $N $G SUCCESS $N"
+         echo -e "Installing $2 is ... $G SUCCESS $N"
     else
-         echo -e "$Y Installing $2 is a .... $N $R FAILURE $N"
+         echo -e "Installing $2 is a .... $R FAILURE $N"
         exit 1
     fi
 }
 
 #mysql
+#check already got installed or not with dnf list installed mysql
 dnf list installed mysql
 
 if [ $? -ne 0 ]
@@ -35,7 +36,7 @@ then
    VALIDATE $? "MySQL"
 
 else
-    echo "Already Mysql was isntalled, nothing to do"
+    echo -e "$Y Already Mysql was installed $N"
 fi
 
 #python
@@ -49,7 +50,7 @@ then
    VALIDATE $? "Python3"
 
 else
-    echo "Already python3 was isntalled, nothing to do"
+    echo -e "Nothing to do, $Y already python3 was installed $N"
 fi
 
 #Nginx
@@ -63,5 +64,5 @@ then
    VALIDATE $? "Nginx"
 
 else
-    echo "Already Nginx was isntalled, nothing to do"
+    echo -e "Nothing to do, $Y already Nginx was isntalled $N"
 fi
