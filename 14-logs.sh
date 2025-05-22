@@ -17,10 +17,10 @@ echo "Script started, executing at: $(date)" &>>$LOG_FILE
 
 if [ $USERID -ne 0 ]
 then
-    echo -e "$R ERROR:: Please run the script with root access $N"
+    echo -e "$R ERROR:: Please run the script with root access $N" &>>$LOG_FILE 
     exit 1 # give other than 0 till 127
 else
-    echo  -e "$G You are running with root access $N"
+    echo  -e "$G You are running with root access $N" &>>$LOG_FILE 
 fi
 
 VALIDATE () {
@@ -28,9 +28,9 @@ VALIDATE () {
 if [ $1 -eq 0 ] #if the installation is success
 #here $1 is first param (exit status $?), $2 is second param (software name)
     then 
-         echo -e "Installing $2 is ... $G SUCCESS $N"
+         echo -e "Installing $2 is ... $G SUCCESS $N" &>>$LOG_FILE 
     else
-         echo -e "Installing $2 is a .... $R FAILURE $N"
+         echo -e "Installing $2 is a .... $R FAILURE $N" &>>$LOG_FILE 
         exit 1
     fi
 }
@@ -46,7 +46,7 @@ then
    VALIDATE $? "MySQL"
 
 else
-    echo -e "$Y Already Mysql was installed $N"
+    echo -e "$Y Already Mysql was installed $N" &>>$LOG_FILE 
 fi
 
 #python
@@ -74,5 +74,5 @@ then
    VALIDATE $? "Nginx"
 
 else
-    echo -e "Nothing to do, $Y already Nginx was installed $N"
+    echo -e "Nothing to do, $Y already Nginx was installed $N" &>>$LOG_FILE 
 fi
