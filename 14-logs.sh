@@ -8,7 +8,7 @@ N="\e[0m"
 LOG_DIR="/var/log/shellscript-logs"
 # command to split and get just files name excluding .sh is
 # echo 14-logs.sh | cut -d "." -f1
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1) $0
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE=$LOG_DIR/$SCRIPT_NAME.log
 
 mkdir -p $LOG_DIR
