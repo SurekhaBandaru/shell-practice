@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 echo "PID: $$"
 
 echo "Greetings from script2"
