@@ -10,7 +10,7 @@ SOURCE_DIR="/home/ec2-user/app-logs"
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_DIR=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_DIR.log"
-FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" mtime +14)
+FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executing at : $(date)" | tee -a $LOG_FILE
