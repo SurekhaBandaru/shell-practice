@@ -10,7 +10,7 @@
 
 #Here IFS is used to separate line by line, -r is to read special characters as well
 #IFS -> Internal field separator
-while IFS=read -r line 
+while IFS= read -r line 
 do
     echo $line 
 done < 17-set.sh
