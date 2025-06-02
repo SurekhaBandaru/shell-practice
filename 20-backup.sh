@@ -45,11 +45,19 @@ fi
 #check if directory exists -d <dir>
 #below is if dir not exist
 if [ ! -d $SOURCE_DIR ]; then
-    echo -e "$R $SOURCE_DIR does not exist, please exist $N"
+    echo -e "$R source directory $SOURCE_DIR does not exist, please check $N"
     exit 1
 fi
 
 if [ ! -d $DEST_DIR ]; then
-    echo -e "$R $DEST_DIR does not exist, please exist $N"
+    echo -e "$R destination directory $DEST_DIR does not exist, please check $N"
     exit 1
+fi
+FILES=$(find . -name "*.log" -mtime +$days)
+
+if [ ! -z $FILES ]
+then
+
+else
+    echo -e "No log files found later than 14 days ... $Y SKIPPING $N"  
 fi
