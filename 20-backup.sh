@@ -61,6 +61,17 @@ if [ ! -z $FILES ]; then
     TIME_STAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.zip"
     echo $FILES | zip -@ $ZIP_FILE
+
+    if [ -f $ZIP_FILE ]; then
+        echo -e "$Y Successfully created Zip file in $DEST_DIR $N"
+        while IFS= read -r filepath; do
+            rm -rf $filepath
+        done <<<$FILES
+        echo -e "Log files older than $DAYS from source directory removed ... &G SUCCESS $N"
+    else
+        echo -e "$R FAILURE $N.... Zip file is not created"
+
+    fi
 else
     echo -e "No log files found older than 14 days ... $Y SKIPPING $N"
 fi
