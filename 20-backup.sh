@@ -53,11 +53,10 @@ if [ ! -d $DEST_DIR ]; then
     echo -e "$R destination directory $DEST_DIR does not exist, please check $N"
     exit 1
 fi
-FILES=$(find . -name "*.log" -mtime +$days)
+FILES=$(find . -name "*.log" -mtime +$DAYS)
 
-if [ ! -z $FILES ]
-then
-
+if [ ! -z $FILES ]; then
+    echo "Files found"
 else
-    echo -e "No log files found later than 14 days ... $Y SKIPPING $N"  
+    echo -e "No log files found later than 14 days ... $Y SKIPPING $N"
 fi
