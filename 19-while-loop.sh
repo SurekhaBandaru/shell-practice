@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 #Ctlc+c to comment
 # a=0
 
