@@ -34,12 +34,11 @@ VALIDATE() {
     fi
 }
 
-USAGE(){
+USAGE() {
     echo "$R USAGE:: $N sh 20-backup.sh <source-dir> <destination-dir> <days(optional)>"
 }
 
-if [ $# -lt 2]
-    then
-        USAGE 
-    else
+if [ $# -lt 2 ]; then
+    USAGE
+else
 fi
