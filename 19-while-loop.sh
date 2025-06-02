@@ -12,5 +12,5 @@
 #IFS -> Internal field separator
 while IFS=read -r line 
 do
-echo $line 
-done <17-set.sh
+    echo $line 
+done < 17-set.sh
