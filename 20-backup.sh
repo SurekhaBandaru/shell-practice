@@ -12,7 +12,7 @@ DAYS=${3:-14} #if DAYS are provided that will be considered $3 otherwise 14 days
 
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_DIR=$(echo $0 | cut -d "." -f1)
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_DIR.log"
+LOG_FILE="$LOGS_FOLDER/backup.log"
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executing at : $(date)" | tee -a $LOG_FILE
