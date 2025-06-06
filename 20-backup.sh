@@ -14,8 +14,7 @@ LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_DIR=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/backup.log"
 
-mkdir -p $LOGS_FOLDER
-echo "Script started executing at : $(date)" | tee -a $LOG_FILE
+
 
 #Check if user has root access
 #| tee -a $LOG_FILE #commented out this log as facing some issues while making this script as a command
@@ -25,6 +24,10 @@ if [ $USERID -ne 0 ]; then
 else
     echo -e "$Y You are running with root access $N" 
 fi
+
+
+mkdir -p $LOGS_FOLDER
+echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 
 VALIDATE() {
     if [ $1 -eq 0 ]; then
