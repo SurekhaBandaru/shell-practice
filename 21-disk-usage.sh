@@ -18,4 +18,4 @@ while IFS= read line; do
 done <<<$DISK_USAGE
 #echo -e "$MSG"
 #sometimes we need to put variables in "" "$IP"
-sh mail.sh "Developers team" "High Disk Usage" "$IP" "$MSG" "surekhagidithuri@gmail.com" "ALERT-High Disk Usage"
+sh mail.sh "Developers team" "High Disk Usage" $IP $MSG "surekhagidithuri@gmail.com" "ALERT-High Disk Usage"
