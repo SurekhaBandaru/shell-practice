@@ -11,7 +11,7 @@ while IFS= read line; do
     PARTITION=$(echo $line | awk '{print $7F}')              #get the Filesytem column where we can see at which location this memory used
     if [ $USAGE -ge $DISK_THRESHOLD ]; then
     #hre + is to append to existing MSG, if not it is printing only last line
-        MSG+="-e High disk usage on $PARTITION: $USAGE \n"
+        MSG+="High disk usage on $PARTITION: $USAGE -e \n"
     fi
     
 done <<<$DISK_USAGE
