@@ -10,7 +10,7 @@ SUBJECT=$6
 #here, replace the place holders in disk-usage-template.html with variables in mail.sh file
 #TO_TEAM in html with $TO_TEAM
 #here used sed -e (temporary edit) because if we make permanent (-i), it will modify permanently not being changed from mail to mail
-FINAL_BODY=$(sed -e 's/TO_TEAM/$TO_TEAM/g' -e 's/ALERT_TYPE/$ALERT_TYPE/g' -e 's/IP_ADDRESS/$IP_ADDRESS/g' -e 's/MSG/$MSG/g' disk-usage-template.html)
+FINAL_BODY=$(sed -e 's/TO_TEAM/$TO_TEAM/g' -e 's/ALERT_TYPE/$ALERT_TYPE/g' -e 's/IP_ADDRESS/$IP_ADDRESS/g' -e 's/MSG/$FINAL_MSG/g' disk-usage-template.html)
 
 {
     echo "To: $TO_ADDRESS"

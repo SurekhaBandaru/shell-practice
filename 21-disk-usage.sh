@@ -15,7 +15,7 @@ while IFS= read line; do
         MSG+="High disk usage on $PARTITION: $USAGE \n"
     fi
     
-done <<<$DISK_USAGE
+done <<< $DISK_USAGE
 #echo -e "$MSG"
 #sometimes we need to put variables in "" "$IP"
-sh mail.sh "Developers team" "High Disk Usage" $IP $MSG "surekhagidithuri@gmail.com" "ALERT-High Disk Usage"
+sh mail.sh "Developers team" "High Disk Usage" "$IP" "$MSG" "surekhagidithuri@gmail.com" "ALERT-High Disk Usage"
