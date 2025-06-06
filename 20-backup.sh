@@ -18,16 +18,18 @@ LOG_FILE="$LOGS_FOLDER/backup.log"
 
 #Check if user has root access
 #| tee -a $LOG_FILE #commented out this log as facing some issues while making this script as a command
+check_root(){
 if [ $USERID -ne 0 ]; then
     echo -e "$R ERROR:: Please run the script with sudo access $N" 
     exit 1
 else
     echo -e "$Y You are running with root access $N" 
 fi
-
+}
 
 mkdir -p $LOGS_FOLDER
-echo "Script started executing at : $(date)" | tee -a $LOG_FILE
+check_root
+#echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 
 
 USAGE() {
