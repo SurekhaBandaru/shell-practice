@@ -9,7 +9,7 @@ MSG=""
 while IFS= read line; do
     USAGE=$(echo $line | awk '{print $6F}' | cut -d "%" -f1) #get the Use% column (without header) and without %
     PARTITION=$(echo $line | awk '{print $7F}')              #get the Filesytem column where we can see at which location this memory used
-    if [ $DISK_USAGE -ge $DISK_THRESHOLD ]; then
+    if [ $USAGE -ge $DISK_THRESHOLD ]; then
         $MSG="High disk usage on $PARTITION: $USAGE"
     fi
     echo "$MSG"
