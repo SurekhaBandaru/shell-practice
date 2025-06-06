@@ -4,6 +4,7 @@
 DISK_USAGE=$(df -hT | grep -v Filesystem)
 DISK_THRESHOLD=1 #usually be 75 in real projects
 MSG=""
+IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4) #to get private ip
 
 #space must be there after IFS=
 while IFS= read line; do
@@ -15,4 +16,6 @@ while IFS= read line; do
     fi
     
 done <<<$DISK_USAGE
-echo -e "$MSG"
+#echo -e "$MSG"
+
+sh mail.sh "Developers team" "High Disk Usage" $IP $MSG "surekhagidithuri@gmail.com" "ALERT-High Disk Usage"
