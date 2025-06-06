@@ -18,11 +18,12 @@ mkdir -p $LOGS_FOLDER
 echo "Script started executing at : $(date)" | tee -a $LOG_FILE
 
 #Check if user has root access
+#| tee -a $LOG_FILE #commented out this log as facing some issues while making this script as a command
 if [ $USERID -ne 0 ]; then
-    echo -e "$R ERROR:: Please run the script with sudo access $N" #| tee -a $LOG_FILE #commented out this log as facing some issues while making this script as a command
+    echo -e "$R ERROR:: Please run the script with sudo access $N" 
     exit 1
 else
-    echo -e "$Y You are running with root access $N" #| tee -a $LOG_FILE #commented out this log as facing some issues while making this script as a command
+    echo -e "$Y You are running with root access $N" 
 fi
 
 VALIDATE() {
