@@ -14,7 +14,7 @@ while IFS= read line; do
     #hre + is to append to existing MSG, if not it is printing only last line
         #MSG+="High disk usage on $PARTITION: $USAGE \n" #\n i snew line in linux
 
-         MSG+="High disk usage on $PARTITION: $USAGE <br>" #here we need to split by new line in html so, user <br>
+         MSG+="High disk usage on $PARTITION: $USAGE% <br>" #here we need to split by new line in html so, user <br>
     fi
     
 done <<< $DISK_USAGE
