@@ -1,4 +1,5 @@
 #!/bin/bash
+
 TO_TEAM=$1
 ALERT_TYPE=$2
 IP_ADDRESS=$3
